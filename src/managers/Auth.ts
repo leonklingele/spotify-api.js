@@ -39,6 +39,7 @@ export class AuthManager {
 			headers: {
 				"Content-Type": "application/x-www-form-urlencoded",
 			},
+			data: {},
 		});
 
 		return data.access_token;
@@ -78,6 +79,7 @@ export class AuthManager {
 				"Content-Type": "application/x-www-form-urlencoded",
 				Authorization: `Basic ${encodeBase64(options.clientID + ":" + options.clientSecret)}`,
 			},
+			data: {},
 		});
 
 		return {
