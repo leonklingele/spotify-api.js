@@ -212,9 +212,10 @@ export class Client {
 					error.response.data?.error?.message == "Invalid access token" ||
 					// @ts-expect-error - Token can be expired.
 					(error.response.data?.error?.message == "The access token expired" && this.refreshMeta)
-				)
+				) {
 					await this.refreshFromMeta();
-				else throw new SpotifyAPIError(error);
+					return;
+				} else throw new SpotifyAPIError(error);
 
 				return this.fetch(url, options);
 			}
