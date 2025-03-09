@@ -159,7 +159,7 @@ export class PlaylistManager {
 		const body = {} as any;
 
 		if (snapshotID) body.snapshot_id = snapshotID;
-		if (uris) body.uris = uris.map(uri => ({ uri }));
+		if (uris) body.tracks = uris.map(uri => ({ uri }));
 
 		const fetchedData = await this.client.fetch(`/playlists/${id}/tracks`, {
 			method: "DELETE",
